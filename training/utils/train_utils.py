@@ -140,7 +140,7 @@ def get_amp_type(amp_type: Optional[str] = None):
         return None
     assert amp_type in ["bfloat16", "float16"], "Invalid Amp type."
     if amp_type == "bfloat16":
-        return torch.bfloat16
+        return torch.float16
     else:
         return torch.float16
 

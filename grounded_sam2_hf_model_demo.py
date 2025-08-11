@@ -42,7 +42,7 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # environment settings
 # use bfloat16
-torch.autocast(device_type=DEVICE, dtype=torch.bfloat16).__enter__()
+torch.autocast(device_type=DEVICE, dtype=torch.float16).__enter__()
 
 if torch.cuda.is_available() and torch.cuda.get_device_properties(0).major >= 8:
     # turn on tfloat32 for Ampere GPUs (https://pytorch.org/docs/stable/notes/cuda.html#tensorfloat-32-tf32-on-ampere-devices)

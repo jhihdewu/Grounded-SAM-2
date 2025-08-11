@@ -93,7 +93,7 @@ class InferenceAPI:
 
     def autocast_context(self):
         if self.device.type == "cuda":
-            return torch.autocast("cuda", dtype=torch.bfloat16)
+            return torch.autocast("cuda", dtype=torch.float16)
         else:
             return contextlib.nullcontext()
 

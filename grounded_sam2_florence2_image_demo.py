@@ -46,7 +46,7 @@ SAM2_CONFIG = "configs/sam2.1/sam2.1_hiera_l.yaml"
 
 # environment settings
 # use bfloat16
-torch.autocast(device_type="cuda", dtype=torch.bfloat16).__enter__()
+torch.autocast(device_type="cuda", dtype=torch.float16).__enter__()
 
 if torch.cuda.get_device_properties(0).major >= 8:
     # turn on tfloat32 for Ampere GPUs (https://pytorch.org/docs/stable/notes/cuda.html#tensorfloat-32-tf32-on-ampere-devices)

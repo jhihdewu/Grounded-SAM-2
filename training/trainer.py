@@ -301,7 +301,7 @@ class Trainer:
             from torch.distributed.algorithms import ddp_comm_hooks
 
             amp_type = get_amp_type(distributed_conf.comms_dtype)
-            if amp_type == torch.bfloat16:
+            if amp_type == torch.float16:
                 hook = ddp_comm_hooks.default_hooks.bf16_compress_hook
                 logging.info("Enabling bfloat16 grad communication")
             else:

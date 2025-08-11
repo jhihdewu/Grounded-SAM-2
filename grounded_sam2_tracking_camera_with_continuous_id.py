@@ -15,7 +15,7 @@ from utils.track_utils import sample_points_from_masks
 from utils.video_utils import create_video_from_images
 
 # Setup environment
-torch.autocast(device_type="cuda", dtype=torch.bfloat16).__enter__()
+torch.autocast(device_type="cuda", dtype=torch.float16).__enter__()
 if torch.cuda.get_device_properties(0).major >= 8:
     torch.backends.cuda.matmul.allow_tf32 = True
     torch.backends.cudnn.allow_tf32 = True

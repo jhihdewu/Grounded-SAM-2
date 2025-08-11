@@ -61,7 +61,7 @@ checkpoint = "./checkpoints/sam2_hiera_large.pt"
 model_cfg = "sam2_hiera_l.yaml"
 predictor = SAM2ImagePredictor(build_sam2(model_cfg, checkpoint))
 
-with torch.inference_mode(), torch.autocast("cuda", dtype=torch.bfloat16):
+with torch.inference_mode(), torch.autocast("cuda", dtype=torch.float16):
     predictor.set_image(<your_image>)
     masks, _, _ = predictor.predict(<input_prompts>)
 ```
@@ -82,7 +82,7 @@ checkpoint = "./checkpoints/sam2_hiera_large.pt"
 model_cfg = "sam2_hiera_l.yaml"
 predictor = build_sam2_video_predictor(model_cfg, checkpoint)
 
-with torch.inference_mode(), torch.autocast("cuda", dtype=torch.bfloat16):
+with torch.inference_mode(), torch.autocast("cuda", dtype=torch.float16):
     state = predictor.init_state(<your_video>)
 
     # add new prompts and instantly get the output on the same frame
